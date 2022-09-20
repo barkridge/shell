@@ -9,7 +9,7 @@ RUN yarn install --frozen-lockfile
 COPY . .
 
 RUN yarn build
-# RUN yarn exec prisma generate
+RUN yarn exec prisma generate
 
 FROM node:lts
 
@@ -25,7 +25,7 @@ RUN yarn install --frozen-lockfile --production
 COPY . .
 
 COPY --from=builder /app/.next /app/.next
-# COPY --from=builder /app/node_modules/.prisma /app/node_modules/.prisma
+COPY --from=builder /app/node_modules/.prisma /app/node_modules/.prisma
 
 EXPOSE 3000
 
