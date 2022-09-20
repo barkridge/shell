@@ -1,5 +1,10 @@
-import Error from 'next/error'
+import Head from 'next/head'
 
 export default function Page() {
-  return <Error statusCode={501} title="Not Implemented"/>
+  return (
+    <Head>
+      <meta httpEquiv="refresh" content="0; url=https://irving.dev"/>
+      <title>301 Moved Permanently</title>
+    </Head>
+  )
 }
